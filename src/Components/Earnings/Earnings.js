@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
+import { LineChart, Line, XAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './Earnings.css';
 
 export default class Dashboard extends Component {
+    state = {
+        earningsTotal: 3922.23,
+        betsTotal: 1829.21,
+        graphData: [{name: 'date1', earnings: 400, bets: 2400, amt: 2400}, {name: 'date2', earnings: 200, bets: 1200, amt: 2000}]
+    }
+
     render() {
         return (
             <div className="earnings">
@@ -15,7 +22,7 @@ export default class Dashboard extends Component {
                     </ul>
 
                     <div className="totals-box__total">
-                        <h2>$3922.23</h2>
+                        <h2>${this.state.earningsTotal}</h2>
                     </div>
 
                     <button className="totals-box__btn">Cash Out</button>
@@ -31,14 +38,21 @@ export default class Dashboard extends Component {
                     </ul>
 
                     <div className="totals-box__total">
-                        <h2>$1829.21</h2>
+                        <h2>${this.state.betsTotal}</h2>
                     </div>
 
                     <button className="totals-box__btn">Cash Out</button>
                 </div>
 
                 <div className="earnings__graph">
-                    This is graph.
+                    <ResponsiveContainer maxWidth={600} maxHeight={200} minHeight={100}>
+                        <LineChart width={725} height={300} data={this.state.graphData}>
+                            <XAxis dataKey='earnings' />
+                            <CartesianGrid stroke="#ccc" strokeDasharray='5 5' />
+                            <Tooltip />
+                            <Line type='monotone' dataKey='median_income' stroke='#0000ff' />
+                        </LineChart>
+                    </ResponsiveContainer>
                 </div>
             </div>
         );

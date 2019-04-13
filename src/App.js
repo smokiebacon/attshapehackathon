@@ -3,6 +3,7 @@ import { Switch, Route, withRouter } from "react-router-dom";
 // import Video from "./Components/Video/Video";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
+import Landing from "./Components/Landing/Landing";
 class App extends Component {
   state = {
     loggedUser: {},
@@ -74,6 +75,8 @@ class App extends Component {
             component={() => <Login doLoginUser={this.doLoginUser} />}
           />
           <Route exact path="/register" component={() => <Register />} />
+          <Route exact path="/landing" component={() => <Landing />} />
+
         </Switch>
       </div>
     );

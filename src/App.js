@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, withRouter } from "react-router-dom";
-// import Video from "./Components/Video/Video";
+import Video from "./Components/Video/Video";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
 import Landing from "./Components/Landing/Landing";
@@ -85,6 +85,7 @@ class App extends Component {
                     <Route exact path="/landing" component={() => <Landing />} />
                     <Route exact path="/bet" component={() => <Bet />} />
                     <Route exact path="/:id/earnings" component={() => <Earnings />} />
+                     <Route exact path="/live-match" component={() => <Video />} />
                 </Switch>
             </div>
         );

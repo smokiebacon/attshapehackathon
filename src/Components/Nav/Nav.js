@@ -40,8 +40,8 @@ class Nav extends Component {
           <Link to="/dashboard" className="ul__nav--link">
             Browse
           </Link>
-          <Link to="/earning" className="ul__nav--link">
-            Earning
+          <Link to="/earnings" className="ul__nav--link">
+            Earnings
           </Link>
           <input type="text" placeholder="Search" className="ul__nav--link" />
         </nav>

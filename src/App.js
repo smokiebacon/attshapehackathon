@@ -21,22 +21,46 @@ class App extends Component {
           },
         },
       );
+
       if (!loginResponse.ok) {
         throw Error(loginResponse.statusText);
       }
-      const parseResponse = await loginResponse.json();
-      if (parseResponse.message === "Login successful.") {
+
+      const parsedResponse = await loginResponse.json();
+      if (parsedResponse.message === "login successful") {
+        //Resets this component's state if a use was successfully logged in
         this.setState({
-          loggedUser: parseResponse.data,
+          loggedUser: parsedResponse.data,
         });
+
         this.props.history.push(`/dashboard`);
       } else {
         this.setState({
-          loginError: parseResponse.message,
+          loginError: parsedResponse.message,
         });
       }
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  doLogoutUser = async user => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/auth/logout`,
+      );
+      if (!response.ok) {
+        throw Error(response.statusText);
+      } else {
+        console.log(response);
+      }
+      const deletedSession = await response.json();
+      this.setState({
+        loggedUser: deletedSession.user || {},
+      });
+      this.props.history.push("/login");
+    } catch (err) {
+      console.log(err);
     }
   };
 

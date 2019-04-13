@@ -36,7 +36,10 @@ export default class Dashboard extends Component {
 
                     <button className="totals-box__btn">Cash Out</button>
                 </div>
-                
+
+                <div className="earnings__graph">
+                    This is graph.
+                </div>
             </div>
         );
     }

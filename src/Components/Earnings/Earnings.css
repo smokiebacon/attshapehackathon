@@ -1,18 +1,47 @@
+/********************/
+/***** Earnings *****/
+/********************/
+.earnings {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+    grid-template-rows: 1fr 2fr;
+    grid-template-areas: "earnings bets"
+                         "graph graph";
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.earnings__earnings {
+    grid-area: earnings;
+}
+
+.earnings__bets {
+    grid-area: bets;
+}
+
+.earnings__graph {
+    grid-area: graph;
+}
 
 /***** Totals Box *****/
 .totals-box {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: 2fr 1fr;
     grid-template-areas: "title toggle"
                          "total btn";
     justify-content: center;
     align-items: center;
+    padding: .5rem;
+    border: .2rem solid #333;
 }
 
 .totals-box__title {
     grid-area: title;
     justify-self: flex-start;
+    align-self: flex-start;
 }
 
 .totals-box__toggle {
@@ -20,6 +49,7 @@
     justify-self: flex-end;
     display: flex;
     flex-flow: row wrap;
+    align-self: flex-start;
     list-style: none;
 }
 
@@ -53,3 +83,5 @@
     color: white;
     border-radius: .3rem;
 }
+
+/***** Graph Box *****/

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import './Bet.css';
-import { Z_BLOCK } from "zlib";
 
 export default class Bet extends Component {
     state = {
@@ -26,22 +25,26 @@ export default class Bet extends Component {
         if (e.target.name === 'A') {
             const teamAPool = this.state.teamAPool + this.state.teamAValue;
             const teamAMine = this.state.teamAMine + this.state.teamAValue;
+            const winEstimate = 3.333 * teamAMine;
 
             this.setState ({
                 teamBInputDisplay: 'none',
                 teamAValue: 0.00,
                 teamAPool: teamAPool,
-                teamAMine: teamAMine
+                teamAMine: teamAMine,
+                winEstimate: winEstimate
             });
         } else if (e.target.name === 'B') {
             const teamBPool = this.state.teamBPool + this.state.teamBValue;
             const teamBMine = this.state.teamBMine + this.state.teamBValue;
+            const winEstimate = 1.429 * teamBMine;
 
             this.setState ({
                 teamAInputDisplay: 'none',
                 teamBValue: 0.00,
                 teamBPool: teamBPool,
-                teamBMine: teamBMine
+                teamBMine: teamBMine,
+                winEstimate: winEstimate
             });
         }
     }
@@ -75,7 +78,7 @@ export default class Bet extends Component {
                     <h2 className="bet__stats__spread--title">Spread/Odds</h2>
                     <h3 className="bet__stats__spread--stats">7:3</h3>
                     <h2 className="bet__stats__win--title">Est. Win Amount</h2>
-                    <h3 className="bet__stats__win--total">{this.state.winEstimate}</h3>
+                    <h3 className="bet__stats__win--total">${this.state.winEstimate}</h3>
                 </div>
             </div>
         );

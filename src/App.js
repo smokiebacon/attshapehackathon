@@ -71,13 +71,8 @@ class App extends Component {
     return (
       <div>
         <Switch>
-          <Route
-            exact
-            path="/login"
-            component={() => <Login doLoginUser={this.doLoginUser} />}
-          />
+          <Route exact path="/" component={() => <Landing />} />
           <Route exact path="/register" component={() => <Register />} />
-          <Route exact path="/landing" component={() => <Landing />} />
           <Route exact path="/bet" component={() => <Bet />} />
           <Route exact path="/live-match" component={() => <Video />} />
         </Switch>

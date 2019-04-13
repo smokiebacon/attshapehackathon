@@ -1,14 +1,42 @@
-.video__main-container {
-    display: flex;
+/* .video__main-container {
     justify-content: center;
 }
 
-
-.video__chat-container {
-    height: 150px;
+.video__bet-container {
+    width: 100%;
+    padding: 5rem;
 }
 
-h1 {
+.video__video-container {
     display: flex;
     flex-direction: row;
-}
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+} */
+
+.video__main-container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-areas: "active__bets video__component video__chat";
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    height: 100vh;
+  }
+  .container > div {
+    border: 1px dashed #888;
+  }
+  .active__bets {
+    background: rgb(44, 43, 43);
+  }
+  
+  .active__bets {
+    grid-area: active__bets;
+  }
+  .video__component {
+    grid-area: video__component;
+  }
+  .video__chat {
+    grid-area: video__chat;
+  }

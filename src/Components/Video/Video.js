@@ -1,35 +1,42 @@
 import React, { Component } from "react";
 import "./Video.css"
-
+import Bet from '../Bet/Bet'
 
 export default class Video extends Component {
   render() {
     return (
       <div className="video__main-container">
-        <h1>This is the LiveMatch!</h1>
+
+        <div className="active__bets">
+          Active Bets
+      </div>
+
+
         <div className="video__video-container">
           <iframe
             title="Video"
-            src="https://player.twitch.tv/?channel=lck"
+            src="https://player.twitch.tv/?channel=riotgamesbrazil"
             frameBorder="0"
             allowFullScreen={true}
             scrolling="no"
-            height="500px"
-            width="800px"
+            height="700px"
+            width="100%"
+          />
+          <Bet />
+        </div>
+        <div className="video__chat">
+          <iframe
+            title="Chat"
+            src="https://www.twitch.tv/embed/riotgamesbrazil/chat"
+            frameBorder="0"
+            scrolling="no"
+            height="100%"
+            width="100%"
           />
         </div>
 
-        <div className="video__chat-container">
-          <iframe
-            title="Chat"
-            src="https://www.twitch.tv/embed/lck/chat"
-            frameBorder="0"
-            scrolling="no"
-            height="500"
-            width="350"
-          />
-        </div>
       </div>
+
     );
   }
 }

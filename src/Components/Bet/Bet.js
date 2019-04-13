@@ -8,7 +8,8 @@ export default class Bet extends Component {
         teamAMine: 0.00,
         teamBValue: 0.00,
         teamBPool: 0.00,
-        teamBMine: 0.00
+        teamBMine: 0.00,
+        winEstimate: 0.00
     }
 
     handleChange = (e) => {
@@ -43,6 +44,10 @@ export default class Bet extends Component {
                 </div>
 
                 <div className="bet__stats">
+                    <h2 className="bet__stats__spread--title">Spread/Odds</h2>
+                    <h3 className="bet__stats__spread--stats">7:3</h3>
+                    <h2 className="bet__stats__win--title">Est. Win Amount</h2>
+                    <h3 className="bet__stats__win--total">{this.state.winEstimate}</h3>
                 </div>
             </div>
         );

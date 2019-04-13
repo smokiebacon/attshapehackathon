@@ -25,6 +25,7 @@ export default class Bet extends Component {
         if (e.target.name === 'A') {
             const teamAPool = this.state.teamAPool + this.state.teamAValue;
             const teamAMine = this.state.teamAMine + this.state.teamAValue;
+            //to calculate estimated wins based on 7:3 Odds, multiply Odds (converted to "Decimal Odds" on https://www.pinnacle.com/en/betting-resources/betting-tools/conversion-calculator) by your stake (the amount you bet)
             const winEstimate = 3.333 * teamAMine;
 
             this.setState ({
@@ -37,6 +38,7 @@ export default class Bet extends Component {
         } else if (e.target.name === 'B') {
             const teamBPool = this.state.teamBPool + this.state.teamBValue;
             const teamBMine = this.state.teamBMine + this.state.teamBValue;
+            //to calculate estimated wins based on 3:7 Odds, multiply Odds (converted to "Decimal Odds" on https://www.pinnacle.com/en/betting-resources/betting-tools/conversion-calculator) by your stake (the amount you bet)
             const winEstimate = 1.429 * teamBMine;
 
             this.setState ({

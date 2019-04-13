@@ -3,9 +3,10 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import Video from "./Components/Video/Video";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
-import Landing from "./Components/Landing/Landing";
+import Dashboard from "./Components/Dashboard/Dashboard";
 import Bet from './Components/Bet/Bet';
 import Earnings from './Components/Earnings/Earnings';
+import Nav from "./Components/Nav/Nav"
 
 class App extends Component {
     state = {
@@ -75,6 +76,7 @@ class App extends Component {
     render() {
         return (
             <div>
+              <Nav doLogoutUser={this.doLogoutUser} loggedUser={this.state.loggedUser}/>
                 <Switch>
                     <Route
                         exact
@@ -82,7 +84,7 @@ class App extends Component {
                         component={() => <Login doLoginUser={this.doLoginUser} />}
                     />
                     <Route exact path="/register" component={() => <Register />} />
-                    <Route exact path="/landing" component={() => <Landing />} />
+                    <Route exact path="/dashboard" component={() => <Dashboard />} />
                     <Route exact path="/bet" component={() => <Bet />} />
                     <Route exact path="/:id/earnings" component={() => <Earnings />} />
                      <Route exact path="/live-match" component={() => <Video />} />

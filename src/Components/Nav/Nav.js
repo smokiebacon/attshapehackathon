@@ -7,16 +7,16 @@ class Nav extends Component {
     loggedIn: false,
   };
 
-  handleClick = () => {
-    if (this.state.loggedIn === false) {
-      this.setState(state => ({ loggedIn: true }));
-    } else {
-      this.setState(state => ({ loggedIn: false }));
-    }
-  };
+  // handleClick = () => {
+  //   if (this.state.loggedIn === false) {
+  //     this.setState(state => ({ loggedIn: true }));
+  //   } else {
+  //     this.setState(state => ({ loggedIn: false }));
+  //   }
+  // };
 
   render() {
-    const links = !this.state.loggedIn ? (
+    const links = !this.props.loggedUser._id ? (
       <nav className="ul__nav--logging">
         <Link to="/login" className="ul__nav--link">
           Login
@@ -26,10 +26,10 @@ class Nav extends Component {
         </Link>
       </nav>
     ) : (
-      <nav className="ul__nav--logging">
-        <Link to="/dashboard" className="ul__nav--link">
-          Logout
-        </Link>
+      <nav className="ul__nav--logging" >
+          <Link to="/dashboard" className="ul__nav--link" onClick={() => this.props.doLogoutUser()}>
+            Logout
+          </Link>
       </nav>
     );
 
@@ -47,7 +47,7 @@ class Nav extends Component {
         </nav>
         {links}
         {/* Remove this when needed */}
-        <button onClick={this.handleClick}>LOGGEDIN/LOGGEDOUT</button>
+        {/* <button onClick={this.handleClick}>LOGGEDIN/LOGGEDOUT</button> */}
       </div>
     );
   }

@@ -6,6 +6,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 2rem;
     grid-template-rows: 1fr 2fr;
+    grid-row-gap: 2rem;
     grid-template-areas: "earnings bets"
                          "graph graph";
     justify-content: center;
@@ -85,3 +86,8 @@
 }
 
 /***** Graph Box *****/
+.earnings__graph {
+    height: 100%;
+    width: 100%;
+    border: .2rem solid #333;
+}

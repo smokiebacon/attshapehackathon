@@ -31,7 +31,7 @@ export default class Dashboard extends Component {
                     </ul>
 
                     <div className="totals-box__total">
-                        <h2>$3922.23</h2>
+                        <h2>$1829.21</h2>
                     </div>
 
                     <button className="totals-box__btn">Cash Out</button>

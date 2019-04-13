@@ -1,0 +1,55 @@
+
+/***** Totals Box *****/
+.totals-box {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas: "title toggle"
+                         "total btn";
+    justify-content: center;
+    align-items: center;
+}
+
+.totals-box__title {
+    grid-area: title;
+    justify-self: flex-start;
+}
+
+.totals-box__toggle {
+    grid-area: toggle;
+    justify-self: flex-end;
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+}
+
+.totals-box__toggle li:not(:last-child) {
+    margin-right: .5rem;
+}
+
+.totals-box__toggle li a:link,
+.totals-box__toggle li a:visited {
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+}
+
+.totals-box__toggle li a:hover,
+.totals-box__toggle li a:active {
+    border-bottom: .1rem solid #333;
+}
+
+.totals-box__total {
+    grid-area: total;
+    justify-self: flex-start;
+}
+
+.totals-box__btn {
+    grid-area: btn;
+    justify-self: flex-end;
+    height: 3rem;
+    width: 10rem;
+    background-color: #333;
+    color: white;
+    border-radius: .3rem;
+}

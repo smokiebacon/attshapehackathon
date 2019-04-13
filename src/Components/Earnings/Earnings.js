@@ -6,21 +6,37 @@ export default class Dashboard extends Component {
         return (
             <div className="earnings">
                 <div className="earnings__earnings totals-box">
-                    <h2 className="totals-box__title">Earnings:</h2>
+                    <h3 className="totals-box__title">Earnings:</h3>
 
-                    <div className="totals-box__toggle">
-                        <h2>Week</h2>
-                        <h2>Month</h2>
-                        <h2>Total</h2>
-                    </div>
+                    <ul className="totals-box__toggle">
+                        <li><a href="#">Week</a></li>
+                        <li><a href="#">Month</a></li>
+                        <li><a href="#">Total</a></li>
+                    </ul>
 
                     <div className="totals-box__total">
-                        $3922.23
+                        <h2>$3922.23</h2>
                     </div>
 
                     <button className="totals-box__btn">Cash Out</button>
                 </div>
 
+                <div className="earnings__bets totals-box">
+                    <h3 className="totals-box__title">Bets:</h3>
+
+                    <ul className="totals-box__toggle">
+                        <li><a href="#">Week</a></li>
+                        <li><a href="#">Month</a></li>
+                        <li><a href="#">Total</a></li>
+                    </ul>
+
+                    <div className="totals-box__total">
+                        <h2>$3922.23</h2>
+                    </div>
+
+                    <button className="totals-box__btn">Cash Out</button>
+                </div>
+                
             </div>
         );
     }

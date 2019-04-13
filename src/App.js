@@ -4,6 +4,7 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
 import Bet from './Components/Bet/Bet';
+import Earnings from './Earnings';
 
 class App extends Component {
   state = {
@@ -77,6 +78,7 @@ class App extends Component {
           />
           <Route exact path="/register" component={() => <Register />} />
           <Route exact path="/bet" component={() => <Bet />} />
+          <Route exact path="/:id/earnings" component={() => <Earnings />} />
         </Switch>
       </div>
     );

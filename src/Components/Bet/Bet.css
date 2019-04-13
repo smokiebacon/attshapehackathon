@@ -1,5 +1,61 @@
+/***************/
+/***** Bets *****/
+/***************/
 .bet {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1rem 20rem;
+    grid-template-areas: "title title title"
+                         "teamA stats teamB";
+    justify-content: center;
+    align-items: center;
+}
+
+.bet__title {
+    grid-area: title;
+}
+
+.bet__teamA {
+    grid-area: teamA;
+}
+
+.bet__teamB {
+    grid-area: teamB;
+}
+
+.bet__stats {
+    grid-area: stats;
+}
+
+/***** Team Grid *****/
+.bet__team {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr) 1.5fr;
+    grid-template-areas: "title title"
+                         "pool mine"
+                         "input input"
+                         "btn btn";
+    justify-content: center;
+    align-items: center;
+}
+
+.bet__team__title {
+    grid-area: title;
+}
+
+.bet__team__pool {
+    grid-area: pool;
+}
+
+.bet__team__mine {
+    grid-area: mine;
+}
+
+.bet__team__input {
+    grid-area: input;
+}
+
+.bet__team__btn {
+    grid-area: btn;
 }

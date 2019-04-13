@@ -45,12 +45,17 @@ export default class Dashboard extends Component {
                 </div>
 
                 <div className="earnings__graph">
-                    <ResponsiveContainer maxWidth={600} maxHeight={200} minHeight={100}>
+                    <ul className="earnings__graph__toggle totals-box__toggle">
+                        <li><a href="#">Week</a></li>
+                        <li><a href="#">Month</a></li>
+                        <li><a href="#">Total</a></li>
+                    </ul>
+                    <ResponsiveContainer maxWidth={400} maxHeight={400} minHeight={100}>
                         <LineChart width={725} height={300} data={this.state.graphData}>
-                            <XAxis dataKey='earnings' />
+                            <XAxis dataKey='name' />
                             <CartesianGrid stroke="#ccc" strokeDasharray='5 5' />
                             <Tooltip />
-                            <Line type='monotone' dataKey='median_income' stroke='#0000ff' />
+                            <Line type='monotone' dataKey='earnings' stroke='#0000ff' />
                         </LineChart>
                     </ResponsiveContainer>
                 </div>

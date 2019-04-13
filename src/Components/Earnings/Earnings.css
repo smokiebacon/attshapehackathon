@@ -91,3 +91,10 @@
     width: 100%;
     border: .2rem solid #333;
 }
+
+.earnings__graph__toggle {
+    width: 95%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}

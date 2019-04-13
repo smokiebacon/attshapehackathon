@@ -7,14 +7,6 @@ class Nav extends Component {
     loggedIn: false,
   };
 
-  // handleClick = () => {
-  //   if (this.state.loggedIn === false) {
-  //     this.setState(state => ({ loggedIn: true }));
-  //   } else {
-  //     this.setState(state => ({ loggedIn: false }));
-  //   }
-  // };
-
   render() {
     const links = !this.props.loggedUser._id ? (
       <nav className="ul__nav--logging">
@@ -46,8 +38,6 @@ class Nav extends Component {
           <input type="text" placeholder="Search" className="ul__nav--link" />
         </nav>
         {links}
-        {/* Remove this when needed */}
-        {/* <button onClick={this.handleClick}>LOGGEDIN/LOGGEDOUT</button> */}
       </div>
     );
   }

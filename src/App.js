@@ -4,6 +4,8 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
 import Landing from "./Components/Landing/Landing";
+import Bet from './Components/Bet/Bet';
+
 class App extends Component {
   state = {
     loggedUser: {},
@@ -76,7 +78,7 @@ class App extends Component {
           />
           <Route exact path="/register" component={() => <Register />} />
           <Route exact path="/landing" component={() => <Landing />} />
-
+          <Route exact path="/bet" component={() => <Bet />} />
         </Switch>
       </div>
     );

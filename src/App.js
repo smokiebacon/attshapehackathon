@@ -5,7 +5,7 @@ import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
 import Landing from "./Components/Landing/Landing";
 import Bet from './Components/Bet/Bet';
-import Earnings from './Earnings';
+import Earnings from './Components/Earnings/Earnings';
 
 class App extends Component {
     state = {

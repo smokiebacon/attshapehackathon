@@ -5,80 +5,91 @@ import Login from "./Components/Auth/Login/Login";
 import Register from "./Components/Auth/Register/Register";
 import Landing from "./Components/Landing/Landing";
 import Bet from './Components/Bet/Bet';
+import Earnings from './Components/Earnings/Earnings';
 
 class App extends Component {
-  state = {
-    loggedUser: {},
-  };
+    state = {
+        loggedUser: {},
+    };
 
-  doLoginUser = async user => {
-    try {
-      const loginResponse = await fetch(
-        `${process.env.REACT_APP_API_URL}/auth/login`,
-        {
-          method: "POST",
-          credentials: "include",
-          body: JSON.stringify(user),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        },
-      );
+    doLoginUser = async user => {
+        try {
+            const loginResponse = await fetch(
+                `${process.env.REACT_APP_API_URL}/auth/login`,
+                {
+                method: "POST",
+                credentials: "include",
+                body: JSON.stringify(user),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                },
+            );
 
-      if (!loginResponse.ok) {
-        throw Error(loginResponse.statusText);
-      }
+            if (!loginResponse.ok) {
+                throw Error(loginResponse.statusText);
+            }
 
-      const parsedResponse = await loginResponse.json();
-      if (parsedResponse.message === "login successful") {
-        //Resets this component's state if a use was successfully logged in
-        this.setState({
-          loggedUser: parsedResponse.data,
-        });
+            const parsedResponse = await loginResponse.json();
+            if (parsedResponse.message === "login successful") {
+                //Resets this component's state if a use was successfully logged in
+                this.setState({
+                loggedUser: parsedResponse.data,
+                });
 
-        this.props.history.push(`/dashboard`);
-      } else {
-        this.setState({
-          loginError: parsedResponse.message,
-        });
-      }
-    } catch (err) {
-      console.log(err);
+                this.props.history.push(`/dashboard`);
+            } else {
+                this.setState({
+                loginError: parsedResponse.message,
+                });
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    doLogoutUser = async user => {
+        try {
+            const response = await fetch(
+                `${process.env.REACT_APP_API_URL}/auth/logout`,
+            );
+
+            if (!response.ok) {
+                throw Error(response.statusText);
+            } else {
+                console.log(response);
+            }
+
+            const deletedSession = await response.json();
+
+            this.setState({
+                loggedUser: deletedSession.user || {},
+            });
+
+            this.props.history.push("/login");
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    render() {
+        return (
+            <div>
+                <Switch>
+                    <Route
+                        exact
+                        path="/login"
+                        component={() => <Login doLoginUser={this.doLoginUser} />}
+                    />
+                    <Route exact path="/register" component={() => <Register />} />
+                    <Route exact path="/landing" component={() => <Landing />} />
+                    <Route exact path="/bet" component={() => <Bet />} />
+                    <Route exact path="/:id/earnings" component={() => <Earnings />} />
+                     <Route exact path="/live-match" component={() => <Video />} />
+                </Switch>
+            </div>
+        );
     }
-  };
-
-  doLogoutUser = async user => {
-    try {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/auth/logout`,
-      );
-      if (!response.ok) {
-        throw Error(response.statusText);
-      } else {
-        console.log(response);
-      }
-      const deletedSession = await response.json();
-      this.setState({
-        loggedUser: deletedSession.user || {},
-      });
-      this.props.history.push("/login");
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  render() {
-    return (
-      <div>
-        <Switch>
-          <Route exact path="/" component={() => <Landing />} />
-          <Route exact path="/register" component={() => <Register />} />
-          <Route exact path="/bet" component={() => <Bet />} />
-          <Route exact path="/live-match" component={() => <Video />} />
-        </Switch>
-      </div>
-    );
-  }
 }
 
 export default withRouter(App);
